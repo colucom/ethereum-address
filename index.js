@@ -1,14 +1,14 @@
 'use strict';
 
-let SHA3 = require('crypto-js/sha3');
+var SHA3 = require('crypto-js/sha3');
 
-let sha3 = (value) => {
+var sha3 = (value) => {
   return SHA3(value, {
     outputLength: 256
   }).toString();
 }
 
-let isAddress = (address) => {
+var isAddress = (address) => {
     if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
         // Check if it has the basic requirements of an address
         return false;
@@ -23,7 +23,7 @@ let isAddress = (address) => {
     }
 };
 
-let isChecksumAddress = function (address) {
+var isChecksumAddress = function (address) {
     // Check each case
     address = address.replace('0x','');
     let addressHash = sha3(address.toLowerCase());
