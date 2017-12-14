@@ -2,13 +2,13 @@
 
 var SHA3 = require('crypto-js/sha3');
 
-var sha3 = (value) => {
+var sha3 = function(value) {
   return SHA3(value, {
     outputLength: 256
   }).toString();
 }
 
-var isAddress = (address) => {
+var isAddress = function(address) {
     if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
         // Check if it has the basic requirements of an address
         return false;
